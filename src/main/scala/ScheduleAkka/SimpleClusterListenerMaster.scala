@@ -78,7 +78,7 @@ class SimpleClusterListenerMaster extends Actor{
     log.info(x.member.address.toString)
     slaveAS ! NodeRef(context.self)      //注册后将AM的actorRef返回给slave
     refToNum += (slaveAS -> 0)
-    slaveAS ! NettyServerStart(8090)
+    slaveAS ! NettyServerStart(8091)
   }
 
 }

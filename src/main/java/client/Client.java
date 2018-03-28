@@ -91,7 +91,7 @@ public class Client {
         System.out.println("Setting command to start ApplicationMaster service");
 
         //The command to start the ApplicationMaster service .需要修改的部分
-        amContainer.setCommands(Collections.singletonList("/usr/local/jdk1.8.0_161/bin/java" + " -Xmx256M" + " ApplicationMaster" + " " + command + " " + String.valueOf(n) + " 1>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stdout" + " 2>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr"));
+        amContainer.setCommands(Collections.singletonList("/usr/local/jdk1.8.0_161/bin/java" + " -Xmx256M" + " client.ApplicationMaster" + " " + command + " " + String.valueOf(n) + " 1>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stdout" + " 2>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr"));
         //修改完成的部分
 
         amContainer.setLocalResources(Collections.singletonMap("first-yarn-app.jar", appMasterJar));
