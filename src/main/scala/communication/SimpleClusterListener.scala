@@ -1,4 +1,4 @@
-package ScheduleAkka
+package communication
 
 import akka.actor.{Actor, ActorRef}
 import akka.cluster.Cluster

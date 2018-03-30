@@ -9,11 +9,17 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/scala" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/scala" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/client" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scala-sdk-2.11.8" level="application" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-common:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-annotations:2.7.1" level="project" />
     <orderEntry type="module-library">
@@ -101,7 +107,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.12.Final" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.11:2.5.10" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.12" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe:config:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-java8-compat_2.11:0.7.0" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-cluster_2.11:2.5.0" level="project" />
@@ -109,7 +114,6 @@
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-stream_2.11:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe:ssl-config-core_2.11:0.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-protobuf_2.11:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: io.aeron:aeron-driver:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: io.aeron:aeron-client:1.2.3" level="project" />
