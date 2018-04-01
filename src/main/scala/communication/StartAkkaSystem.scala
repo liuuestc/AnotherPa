@@ -11,6 +11,6 @@ class StartAkkaSystem{
     val actorSystem = ActorSystem("apsAkkaSystem",ConfigFactory.load("application.conf"))
     val simpleClusterListenerMaster = actorSystem.actorOf(Props[SimpleClusterListenerMaster],"SimpleClusterListenerMaster")
     //  Thread.sleep(1000)
-    simpleClusterListenerMaster ! NettyServerStart(8090)
+    simpleClusterListenerMaster ! NettyServerStart
   }
 }

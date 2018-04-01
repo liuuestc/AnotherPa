@@ -4,10 +4,11 @@ import akka.actor.{Actor, ActorRef}
 import akka.cluster.Cluster
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
 import akka.event.Logging
-import ipc.Client.EchoClient
-import ipc.Server.EchoServer
+import ipc.NettyInfo
+import ipc.client.EchoClient
+import ipc.server.EchoServer
 
-class SimpleClusterListener extends Actor{
+class SimpleClusterListener extends Actor with ActorInterface {
   val log = Logging(context.system,this)
   val cluster = Cluster.get(context.system)
   var masterRef : ActorRef = null
@@ -34,14 +35,10 @@ class SimpleClusterListener extends Actor{
       masterRef ! "HEllo"
 
     //netty 服务器启动
-    case NettyServerStart(port) =>
+    case NettyServerStart =>
       nettyServer.start()
     //netty客户端传完数据停止
-    case NettyClientStart(host,port) =>
-      println("Start Netty")
-      echoClient.setHost(host)
-      echoClient.setPort(port)
-      echoClient.start()
+
 
     case test : String => println("HEllo , succeed")
   }

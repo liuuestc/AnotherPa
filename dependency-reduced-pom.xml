@@ -29,6 +29,12 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <minimizeJar>true</minimizeJar>
+              <artifactSet>
+                <excludes>
+                  <exclude>org.apache.hadoop*</exclude>
+                </excludes>
+              </artifactSet>
               <transformers>
                 <transformer>
                   <mainClass>ScalaClient</mainClass>
@@ -38,7 +44,34 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>2.7.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>2.7.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-client</artifactId>
+      <version>2.7.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>
 

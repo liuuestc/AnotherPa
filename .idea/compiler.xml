@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AnotherPS" target="1.5" />
+      <module name="AnotherPS" target="1.8" />
       <module name="Protobuf" target="1.5" />
       <module name="Server" target="1.5" />
     </bytecodeTargetLevel>

@@ -6,16 +6,16 @@ import akka.actor.{Actor, ActorSelection}
 import akka.cluster.Cluster
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
 import akka.event.Logging
-import ipc.Client.EchoClient
-import ipc.Server.EchoServer
+import ipc.client.EchoClient
+import ipc.server.EchoServer
 import org.apache.hadoop.net.NetUtils
 
 import scala.collection.mutable
 
-class SimpleClusterListenerMaster extends Actor{
+class SimpleClusterListenerMaster extends Actor with ActorInterface{
   val log = Logging(context.system,this)
   val cluster = Cluster.get(context.system)
-  val masterhost =NetUtils.getHostname.split("/")(1)
+  val masterHost =NetUtils.getHostname.split("/")(1)
   val nettyServer = new Thread(new EchoServer())
 
 
@@ -50,18 +50,12 @@ class SimpleClusterListenerMaster extends Actor{
 
     case x : String =>
       println("Succeed i have received!")
-      println(masterhost)
+      println(masterHost)
 
 
-    case NettyServerStart(port) =>
+    case NettyServerStart =>
       nettyServer.start()
     //netty客户端传完数据停止
-    case NettyClientStart(host,port) =>
-      println("Start Netty")
-      val echoClient=  new EchoClient()
-      echoClient.setHost(host)
-      echoClient.setPort(port)
-      echoClient.start()
   }
 
   //查找refToNum中批数最少的actorSelection
@@ -77,8 +71,5 @@ class SimpleClusterListenerMaster extends Actor{
     val slaveAS = cluster.system.actorSelection(x.member.address.toString+"""/user/SimpleClusterListener""")
     log.info(x.member.address.toString)
     slaveAS ! NodeRef(context.self)      //注册后将AM的actorRef返回给slave
-    refToNum += (slaveAS -> 0)
-    slaveAS ! NettyServerStart(8091)
   }
-
 }

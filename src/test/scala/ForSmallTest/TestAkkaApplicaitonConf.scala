@@ -2,8 +2,8 @@ package ForSmallTest
 
 import com.typesafe.config.ConfigFactory
 import conf.APSConfiguration
-import ipc.Client.EchoClient
-import ipc.Server.EchoServer
+import ipc.client.EchoClient
+import ipc.server.EchoServer
 
 object TestAkkaApplicaitonConf extends App {
   val conf = ConfigFactory.parseString("""akka.cluster.seed-nodes=["akka.tcp://apsAkkaSystem@127.0.0.1:2551","akka.tcp://apsAkkaSystem@127.0.0.1:2552","akka.tcp://apsAkkaSystem@127.0.0.1:2553"]""").withFallback(ConfigFactory.load())

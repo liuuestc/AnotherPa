@@ -17,9 +17,9 @@
 package common.location;
 
 
-import common.PSAgentId;
-import common.ParameterServerId;
-import common.WorkerId;
+import common.workerInfo.PSAgentId;
+import common.workerInfo.ParameterServerId;
+import common.workerInfo.WorkerId;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

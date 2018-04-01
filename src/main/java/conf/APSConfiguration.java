@@ -1,11 +1,11 @@
 package conf;
 
-import common.TextMultiOutputFormat;
+import util.TextMultiOutputFormat;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.http.HttpConfig;
 import org.apache.hadoop.mapred.InputFormat;
 import org.apache.hadoop.mapred.OutputFormat;
 import org.apache.hadoop.yarn.conf.YarnConfiguration;
+import util.Utilities;
 
 public class APSConfiguration extends YarnConfiguration {
 
@@ -66,6 +66,18 @@ public class APSConfiguration extends YarnConfiguration {
   public static final String APS_WORKER_NUM = "aps.worker.num";
 
   public static final int DEFAULT_APS_WORKER_NUM = 1;
+
+  /**
+   * Get a time parameter as seconds; throws a NoSuchElementException if it's not set. If no
+   * suffix is provided then seconds are assumed.
+   * @throws
+   */
+  public Long getTimeAsSeconds(String key) {
+    return  Utilities.timeStringAsSec(get(key));
+  }
+   public Long getTimeAsSeconds(String key, String defaultValue) {
+       return getTimeAsSeconds(get(key, defaultValue));
+  }
 
   //可能没用
 
