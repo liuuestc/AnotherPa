@@ -1,5 +1,6 @@
 package conf;
 
+import sun.tools.jar.resources.jar;
 import util.TextMultiOutputFormat;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapred.InputFormat;
@@ -257,4 +258,20 @@ public class APSConfiguration extends YarnConfiguration {
 
   public static final int DEFAULT_APS_HISTORY_LOG_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
+  public APSConfiguration setAppName(String name) {
+        set("spark.app.name", name);
+        return this;
+    }
+    public APSConfiguration setJars(String[] jars){
+      String result = "";
+      for (String jar : jars){
+          if(jar == null)
+              System.out.println("null jar passed to SparkContext constructor");
+          else
+              result += jar + ",";
+      }
+      result.substring(0,result.length()-1);
+        set("apa.jars",result);
+        return this;
+    }
 }

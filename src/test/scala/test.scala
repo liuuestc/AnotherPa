@@ -2,6 +2,8 @@ package communication
 
 import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
+import communication.Listener.{WorkerListener, MasterListener}
+import conf.APSConfiguration
 import io.BlockManger
 
 class test{
@@ -10,7 +12,7 @@ class test{
 object Main extends App{
   println("Start simpleClusterListener")
   val actorSystem = ActorSystem("apsAkkaSystem",ConfigFactory.load("application.conf"))
-  val simpleClusterListenerMaster = actorSystem.actorOf(Props[SimpleClusterListenerMaster],"SimpleClusterListenerMaster")
+  val simpleClusterListenerMaster = actorSystem.actorOf(Props[MasterListener],"SimpleClusterListenerMaster")
   //  Thread.sleep(1000)
   simpleClusterListenerMaster ! NettyServerStart
 }
@@ -18,7 +20,7 @@ object Main extends App{
 object Slave extends App{
   println("Start simple Slave")
   val actorSystem = ActorSystem("apsAkkaSystem",ConfigFactory.load("application_slave.conf"))
-  val simpleClusterListener = actorSystem.actorOf(Props[SimpleClusterListener],"SimpleClusterListener")
+  val simpleClusterListener = actorSystem.actorOf(Props[WorkerListener],"SimpleClusterListener")
 }
 
 object tess extends App{

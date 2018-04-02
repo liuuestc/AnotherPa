@@ -12,7 +12,7 @@ case class ReadBlock(blockInfo: BlockInfo)
 
 
 case class NettyServerStart()
-case class NettyId(host: String, port : Int)
+case class NettyId(host: String, port : Int) //返回
 
 case class InitialModel()
 case class TrainModel()
