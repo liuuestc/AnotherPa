@@ -259,7 +259,7 @@ public class APSConfiguration extends YarnConfiguration {
   public static final int DEFAULT_APS_HISTORY_LOG_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
   public APSConfiguration setAppName(String name) {
-        set("spark.app.name", name);
+        set("aps.app.name", name);
         return this;
     }
     public APSConfiguration setJars(String[] jars){
@@ -271,7 +271,14 @@ public class APSConfiguration extends YarnConfiguration {
               result += jar + ",";
       }
       result.substring(0,result.length()-1);
-        set("apa.jars",result);
+        set("aps.jars",result);
         return this;
+    }
+    public APSConfiguration setJarPath(String jarPath){
+      set("aps.jar",jarPath);
+      return this;
+    }
+    public String getJarPath() {
+      return get("aps.jar");
     }
 }

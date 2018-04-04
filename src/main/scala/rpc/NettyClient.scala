@@ -1,5 +1,6 @@
 package rpc
 
-class NettyClient {
-
+trait NettyClient {
+  def getPort():String
+  def send():Boolean
 }

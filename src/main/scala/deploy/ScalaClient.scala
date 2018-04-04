@@ -3,6 +3,7 @@ package deploy
 import java.io.File
 import java.util.Collections
 
+import client.Client
 import conf.APSConfiguration
 import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.yarn.api.ApplicationConstants
@@ -15,29 +16,18 @@ import org.apache.hadoop.yarn.util.{Apps, ConverterUtils, Records}
 import scala.collection.mutable
 import scala.collection.JavaConversions._
 
-object ScalaClient {
-  def main(args: Array[String]): Unit = {
-    val conf = new APSConfiguration()
-    val clientObj = new ScalaClient(conf)
-    if(clientObj.run(args)){
-      println("Application completed successfully")
-    }else{
-      println("Application Failed / Killed")
-    }
-  }
-}
 
-
-
-class ScalaClient(conf : APSConfiguration) {
-  def run(args : Array[String]) : Boolean = {
-    val command = args(0)
-    val n = Integer.valueOf(args(1))
-    val jarPath = new Path(args(2))
+class ScalaClient(apsconf : APSConfiguration, myClient : Client , isPs : Boolean) {
+  def run() : Boolean = {
+    val jarPath = new Path(apsconf.getJarPath)
+    val className = myClient.getClass.getName
+    val workerNum = apsconf.getInt("aps.worker.num",1)
+    val amMemory = apsconf.getInt("aps.am.memory",256)
+    val amCore = apsconf.getInt("aps.am.core",1)
+    val psServer = if(isPs) 0 else 1
     println("Initializing YARN configuration")
-    val conf = new YarnConfiguration()
     val yarnClient = YarnClient.createYarnClient()
-    yarnClient.init(conf)
+    yarnClient.init(apsconf)
     yarnClient.start()
     println("Requesting ResourceManager for a new Application")
     val app = yarnClient.createApplication()
@@ -45,7 +35,7 @@ class ScalaClient(conf : APSConfiguration) {
     val amContainer = Records.newRecord(classOf[ContainerLaunchContext])
     println("Adding LocalResource")
     val appMasterJar: LocalResource = Records.newRecord(classOf[LocalResource])
-    val  jarStat = FileSystem.get(conf).getFileStatus(jarPath)
+    val  jarStat = FileSystem.get(apsconf).getFileStatus(jarPath)
     appMasterJar.setResource(ConverterUtils.getYarnUrlFromPath(jarPath))
     appMasterJar.setSize(jarStat.getLen)
     appMasterJar.setTimestamp(jarStat.getModificationTime)
@@ -53,18 +43,19 @@ class ScalaClient(conf : APSConfiguration) {
     appMasterJar.setVisibility(LocalResourceVisibility.PUBLIC)
     println("Setting environment")
     val appMasterEnv = new mutable.HashMap[String,String]()
-    for ( c : String <- conf.getStrings(YarnConfiguration.YARN_APPLICATION_CLASSPATH,YarnConfiguration.DEFAULT_YARN_APPLICATION_CLASSPATH : _*)){
+    for ( c : String <- apsconf.getStrings(YarnConfiguration.YARN_APPLICATION_CLASSPATH,YarnConfiguration.DEFAULT_YARN_APPLICATION_CLASSPATH : _*)){
       Apps.addToEnvironment(appMasterEnv,Environment.CLASSPATH.name(),c.trim)
     }
     Apps.addToEnvironment(appMasterEnv,Environment.CLASSPATH.name(),Environment.PWD.$()+File.separator+"*")
     println("Setting resource capability")
     val capability = Records.newRecord(classOf[Resource])
-    capability.setMemory(256)
-    capability.setVirtualCores(1)
+    capability.setMemory(amMemory)
+    capability.setVirtualCores(amCore)
     println("Setting command to start ApplicationMaster service")
     amContainer.setCommands(Collections.singletonList("/usr/local/jdk1.8.0_161/bin/java"
-      + " -Xmx256M" + " scala.ScalaApplicationMaster"
-      + " " + command + " " + String.valueOf(n) + " 1>"
+      + " -Xmx256M" +  className
+      + " " + String.valueOf(workerNum) + " " + myClient.getClass.getName + " "
+      + String.valueOf(psServer) +" 1>"
       + ApplicationConstants.LOG_DIR_EXPANSION_VAR +
       "/stdout"
       + " 2>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR
@@ -73,7 +64,7 @@ class ScalaClient(conf : APSConfiguration) {
     amContainer.setEnvironment(appMasterEnv)
     println("Initializing ApplicatonSubmissionContext")
     val appContext : ApplicationSubmissionContext = app.getApplicationSubmissionContext
-    appContext.setApplicationName("first-yarn-app")
+    appContext.setApplicationName(apsconf.get("aps.app.name"))
     appContext.setApplicationType("YARN")
     appContext.setAMContainerSpec(amContainer)
     appContext.setResource(capability)
@@ -92,11 +83,7 @@ class ScalaClient(conf : APSConfiguration) {
       appReport = yarnClient.getApplicationReport(appId)
       appState = appReport.getYarnApplicationState
     }
-    if(appState == YarnApplicationState.FINISHED){
-      true
-    }else{
-      false
-    }
+    if(appState == YarnApplicationState.FINISHED) true else false
   }
 }
 

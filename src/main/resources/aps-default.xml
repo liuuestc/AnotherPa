@@ -18,6 +18,10 @@
 
 <configuration>
     <property>
+        <name>java_home</name>
+        <value></value>
+    </property>
+    <property>
         <name>aps.akka.cluster.master.port</name>
         <value>2551</value>
     </property>
@@ -43,7 +47,7 @@
     </property>
     <property>
         <name>aps.am.memory</name>
-        <value>1024</value>
+        <value>256</value>
     </property>
     <property>
         <name>aps.am.cores</name>
@@ -51,7 +55,7 @@
     </property>
     <property>
         <name>aps.worker.memory</name>
-        <value>1024</value>
+        <value>128</value>
     </property>
     <property>
         <name>aps.worker.cores</name>

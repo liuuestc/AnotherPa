@@ -1,5 +1,7 @@
 package rpc
 
-class NettyServer {
-
+trait NettyServer {
+  def getPort():String
+  def send():Boolean
+  def start():Boolean
 }

@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -36,8 +37,18 @@ public final class Utilities {
 
   private Utilities() {
   }
-
-
+    //获取本机空闲端口号
+  public static int getLocalPort(){
+      ServerSocket serverSocket = null; //读取空闲的可用端口
+      try {
+          serverSocket = new ServerSocket(0);
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      int port = serverSocket.getLocalPort();
+      return port;
+  }
+  // 获取本机地址
   public static String getLocalHost(){
         return NetUtils.getHostname().split("/")[1];
   }
