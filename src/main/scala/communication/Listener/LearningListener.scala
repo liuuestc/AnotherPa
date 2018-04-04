@@ -5,7 +5,7 @@ import communication._
 import ipc.server.NettyServer
 
 //model训练是使用的Actor
-class LearningListener(nettyServer: NettyServer) extends Actor {
+class LearningListener extends Actor {
   override def receive: Receive = {
     case InitialModel =>
     case TrainModel =>

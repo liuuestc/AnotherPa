@@ -1,6 +1,7 @@
 package common
 
 import akka.actor.ActorRef
+import client.Client
 import common.workerInfo.WorkerId
 import io.{BlockManger, ModelInfo}
 import ipc.NettyInfo
@@ -17,12 +18,12 @@ class apsMaster(className : String) {
   var times = 0     //训练的次数
   var bias : Double = 0
   val partBias =  new mutable.HashMap[String,Double]()   // 每个worker上传的误差
-  def start()={
+  val client = Class.forName(className).newInstance().asInstanceOf[Client]
+  def start() = {
 
   }
 }
 
 object apsMaster{
   def apply(className: String): apsMaster = new apsMaster(className)
-
 }

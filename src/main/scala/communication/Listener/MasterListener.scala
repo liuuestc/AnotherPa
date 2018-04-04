@@ -1,6 +1,6 @@
 package communication.Listener
 
-import akka.actor.{Actor, ActorSelection}
+import akka.actor.{Actor, ActorSelection, Props}
 import akka.cluster.Cluster
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
 import akka.event.Logging
@@ -16,6 +16,8 @@ class MasterListener extends Actor{
   val masterHost =Utilities.getLocalHost
   val nettyServer = new Thread(new NettyServer())
 
+  val parameterListener = context.actorOf(Props[ParameterListener],"parameter")
+  val transactionListener = context.actorOf(Props[TransactionListener],"transaction")
 
   //每一个executor要训练到全部参数的批数
   val refToNum = new mutable.HashMap[ActorSelection,Int]()
