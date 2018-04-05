@@ -1,6 +1,8 @@
 package rpc
 
+import protobuf.MatrixLong.Matrix
+
 trait NettyServer {
-  def getPort():String
-  def start():Boolean
+  def initial(): Int
+  def getMatrix() : Matrix
 }

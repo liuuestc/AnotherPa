@@ -4,7 +4,8 @@ import akka.actor.ActorRef
 import client.Client
 import common.workerInfo.WorkerId
 import io.{BlockMangerImpl, ModelInfo}
-import ipc.{NettyInfo, ServerNettyImpl}
+import ipc.NettyInfo
+import ipc.Server.ServerNettyImpl
 
 import scala.collection.JavaConversions._
 import scala.collection.mutable

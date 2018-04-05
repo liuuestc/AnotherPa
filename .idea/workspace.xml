@@ -8,175 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="89ea019e-b2a6-42ec-9df0-c8a884ce66b7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/ClientNetty.java" afterPath="$PROJECT_DIR$/src/main/java/ipc/Client/ClientNetty.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/ClientNettyImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ipc/Client/ClientNettyImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/ServerNetty.java" afterPath="$PROJECT_DIR$/src/main/java/ipc/Server/ServerNetty.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ipc/Server/ServerNettyImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/client/EchoClientHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/client/NettyClient.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/server/EchoServerHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/server/NettyServer.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" afterPath="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/test.scala" afterPath="$PROJECT_DIR$/src/test/scala/test.scala" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.conf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application_slave.conf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/aps-default.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/Client$class.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/Client.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsMaster$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsMaster.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsSlave$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsSlave.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/ScheduleMaster$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/ScheduleMaster.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/location/Location.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/location/LocationManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/Id.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/PSAgentId.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/ParameterServerId.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/WorkerGroupId.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/WorkerId.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSFailure$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSFailure.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSSuccess$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSSuccess.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ActorSystemRef.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ActorSystemUtils.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/InitialModel$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/InitialModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/LearningRef$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/LearningRef.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/LearningListener$$anonfun$receive$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/LearningListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/MasterListener$$anonfun$getMinactorSelection$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/MasterListener$$anonfun$receive$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/MasterListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/ParameterListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/TransactionListener$$anonfun$receive$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/TransactionListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/WorkerListener$$anonfun$receive$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/WorkerListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/MasterRef$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/MasterRef.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelCache$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelCache.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelId$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelId.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelSaved$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelSaved.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelTrainFinish$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelTrainFinish.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyId$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyId.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyServerStart$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyServerStart.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/NodeRef$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/NodeRef.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ReadBlock$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/ReadBlock.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/SlaveAkkaSystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/StartAkkaSystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/TrainModel$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/TrainModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransData$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransData.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransactionRef$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransactionRef.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/conf/APSConfiguration.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient$$anonfun$main$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient$$anonfun$main$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/examples/LDA.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/AngelException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/DoNotRetryIOException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/InvalidParameterException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/RemoteException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/RetriesExhaustedException$ThrowableWithExtraContext.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/RetriesExhaustedException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/ServerRowNotFoundException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/StandbyException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/TimeOutException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/UnknownProtocolException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exception/UnvalidIdStrException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/BlockInfo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/BlockManger.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/ModelInfo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/ModelManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/ParameterManager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ClientNetty.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ClientNettyImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/NettyInfo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ServerNetty.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ServerNettyImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/client/EchoClientHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/client/NettyClient$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/client/NettyClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/server/EchoServerHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/server/NettyServer$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ipc/server/NettyServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrix$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrix$Builder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrixOrBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRow$Builder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRowOrBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Matrix$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Matrix$Builder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Matrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$MatrixOrBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Row$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Row$Builder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Row.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$RowOrBuilder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rpc/NettyClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rpc/NettyServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/ByteUnit.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/TextMultiOutputFormat$MultiSplitRecordWriter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/TextMultiOutputFormat$NewDataOutputStream.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/TextMultiOutputFormat.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/Utilities.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestAkkaApplicaitonConf$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestAkkaApplicaitonConf$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestAkkaApplicaitonConf.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestClient$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestClient$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestClient.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestConfiguration$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestConfiguration$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestConfiguration.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestServer$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestServer$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Hello$class.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Hello.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Main$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Main$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Main.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/SayHello.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Slave$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Slave$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Slave.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/TestCreateActorSystem$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/TestCreateActorSystem$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/TestCreateActorSystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/tess$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/tess$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/tess.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/test.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/testReflect$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/testReflect$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/testReflect.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/protobuf/testMatrixDouble.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/testForString.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/testUtils$.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/testUtils$delayedInit$body.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/testUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala" afterPath="$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -203,36 +44,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ServerNettyImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-              <folding>
-                <element signature="e#195#196#0" expanded="true" />
-                <element signature="e#219#220#0" expanded="true" />
-                <element signature="e#277#278#0" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ClientNetty.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ClientNetty.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Client/ClientNetty.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="66">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testUtils.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/testUtils.scala">
+      <file leaf-file-name="ClientNettyImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Client/ClientNettyImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerNetty.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Server/ServerNetty.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
-              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerNettyImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Server/ServerNettyImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#311#312#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NettyClient.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/rpc/NettyClient.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+              <folding>
+                <element signature="e#13#49#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NettyServer.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testUtils.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/testUtils.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -242,10 +124,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-              <folding>
-                <element signature="e#16#42#0" expanded="true" />
-              </folding>
+              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -258,28 +138,6 @@
               <folding>
                 <element signature="e#23#61#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlockManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/BlockManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="58" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlockInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/BlockInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -297,36 +155,6 @@
                 <element signature="e#398#399#0" expanded="true" />
                 <element signature="e#485#486#0" expanded="true" />
                 <element signature="e#513#514#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/ModelInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="e#469#470#0" expanded="true" />
-                <element signature="e#499#500#0" expanded="true" />
-                <element signature="e#539#540#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#628#629#0" expanded="true" />
-                <element signature="e#672#673#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParameterManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/ParameterManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-              <folding>
-                <element signature="e#747#748#0" expanded="true" />
-                <element signature="e#791#792#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -363,9 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/scala/communication/StartAkkaSystem.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/communication/ActorSystemUtils.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/communication/TestCreateActorSystem.scala" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/client/EchoClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/client/NettyClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/server/EchoServer.java" />
@@ -388,7 +213,6 @@
         <option value="$PROJECT_DIR$/src/main/scala/communication/Listener/ParameterListener.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/communication/Listener/TransactionListener.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/communication/Listener/LearningListener.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/ClientNetty.java" />
         <option value="$PROJECT_DIR$/src/main/scala/rpc/NettyClient.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/common/apsMaster.scala" />
@@ -414,6 +238,10 @@
         <option value="$PROJECT_DIR$/src/main/java/io/BlockMangerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/test.scala" />
+        <option value="$PROJECT_DIR$/src/main/java/ipc/Server/ServerNettyImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ipc/Client/ClientNetty.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ipc/Client/ClientNettyImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala" />
       </list>
     </option>
   </component>
@@ -531,6 +359,24 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ipc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnotherPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnotherPS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ipc" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnotherPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnotherPS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ipc" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnotherPS" type="b2602c69:ProjectViewProjectNode" />
@@ -922,7 +768,7 @@
       <workItem from="1522241394642" duration="1903000" />
       <workItem from="1522331562425" duration="661000" />
       <workItem from="1522387647353" duration="18350000" />
-      <workItem from="1522588923600" duration="40453000" />
+      <workItem from="1522588923600" duration="40936000" />
     </task>
     <task id="LOCAL-00001" summary="second">
       <created>1522225308144</created>
@@ -942,7 +788,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95639000" />
+    <option name="totallyTimeSpent" value="96122000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1237,24 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/rpc/NettyClient.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#13#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/common/location/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-698">
@@ -1327,20 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ClientNettyImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#203#204#0" expanded="false" />
-            <element signature="e#231#232#0" expanded="false" />
-            <element signature="e#303#304#0" expanded="false" />
-            <element signature="e#331#332#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/communication/Listener/TransactionListener.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1393,37 +1207,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ServerNetty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#219#220#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ClientNetty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1499,10 +1282,8 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding>
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1518,8 +1299,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/testUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Client/ClientNetty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/rpc/NettyClient.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding>
+            <element signature="e#13#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Client/ClientNettyImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Server/ServerNettyImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ipc/Server/ServerNetty.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/rpc/NettyServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="20" />
           <folding />
         </state>
       </provider>

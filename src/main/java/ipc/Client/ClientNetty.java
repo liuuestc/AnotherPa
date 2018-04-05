@@ -1,9 +1,8 @@
-package ipc;
+package ipc.Client;
 
-import protobuf.MatrixDouble;
 import protobuf.MatrixLong;
 
 public interface ClientNetty {
-     boolean sendParameter(MatrixDouble.DMatrix dMatrix);
+     boolean sendParameter(MatrixLong.Matrix Matrix);
      boolean sendModel(MatrixLong.Matrix matrix);
 }

@@ -1,11 +1,11 @@
-package ipc;
+package ipc.Client;
 
 import protobuf.MatrixDouble;
 import protobuf.MatrixLong;
 
 public class ClientNettyImpl implements ClientNetty{
     @Override
-    public boolean sendParameter(MatrixDouble.DMatrix dMatrix) {
+    public boolean sendParameter(MatrixLong.Matrix matrix) {
         return false;
     }
 
