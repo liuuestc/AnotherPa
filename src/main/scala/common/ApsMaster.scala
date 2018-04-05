@@ -21,6 +21,9 @@ class ApsMaster(className : String) {
   val client = Class.forName(className).newInstance().asInstanceOf[Client]
   val nettyServer = new ServerNettyImpl()
   new Thread(nettyServer).start()
+  def start(): Unit ={
+
+  }
 }
 
 object ApsMaster{

@@ -1,9 +1,6 @@
 package ipc;
 
-import protobuf.MatrixDouble;
 import protobuf.MatrixLong;
-
-import java.util.List;
 
 public class ServerNettyImpl implements ServerNetty , Runnable {
 
@@ -19,7 +16,7 @@ public class ServerNettyImpl implements ServerNetty , Runnable {
     }
 
     @Override
-    public List<MatrixLong.Row> getMatrix() {
+    public MatrixLong.Matrix getMatrix() {
         return null;
     }
 }

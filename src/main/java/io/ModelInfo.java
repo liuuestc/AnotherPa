@@ -2,24 +2,28 @@ package io;
 
 import common.workerInfo.WorkerId;
 import org.apache.hadoop.fs.Path;
+import protobuf.MatrixLong;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ModelInfo {
+
+    private final long modelId = UUID.randomUUID().getMostSignificantBits(); //Model唯一的编号
     private int iter = 0;      //目前训练的次数
     private Path cachePath;  // 缓存的地址
     private WorkerId workerId;  //目前所在的worker
-    private ArrayList<String> trainedList = new ArrayList(); //每一轮已经训练过的worker数据
+    private MatrixLong matrixLong;
 
-
-    public ArrayList<String> getTrainedList(int n) {
-        cleanTrainList(n);
-        return trainedList;
+    public long getModelId() {
+        return modelId;
+    }
+    public MatrixLong getMatrixLong() {
+        return matrixLong;
     }
 
-    public void cleanTrainList(int n){
-        if (n == trainedList.size())
-            trainedList = new ArrayList<String>();
+    public void setMatrixLong(MatrixLong matrixLong) {
+        this.matrixLong = matrixLong;
     }
 
     public int getIter() {
