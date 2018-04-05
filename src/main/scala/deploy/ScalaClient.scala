@@ -17,13 +17,15 @@ import scala.collection.mutable
 import scala.collection.JavaConversions._
 
 
-class ScalaClient(apsconf : APSConfiguration, myClient : Client , isPs : Boolean) {
-  def run() : Boolean = {
+object ScalaClient {
+  def main(args: Array[String]): Unit = {
+    val apsconf = new APSConfiguration()
     val jarPath = new Path(apsconf.getJarPath)
-    val className = myClient.getClass.getName
+    val className = args(0)
     val workerNum = apsconf.getInt("aps.worker.num",1)
     val amMemory = apsconf.getInt("aps.am.memory",256)
     val amCore = apsconf.getInt("aps.am.core",1)
+    val isPs = Class.forName(className).newInstance().asInstanceOf[Client].isPs
     val psServer = if(isPs) 0 else 1
     println("Initializing YARN configuration")
     val yarnClient = YarnClient.createYarnClient()
@@ -53,8 +55,8 @@ class ScalaClient(apsconf : APSConfiguration, myClient : Client , isPs : Boolean
     capability.setVirtualCores(amCore)
     println("Setting command to start ApplicationMaster service")
     amContainer.setCommands(Collections.singletonList("/usr/local/jdk1.8.0_161/bin/java"
-      + " -Xmx256M" +  className
-      + " " + String.valueOf(workerNum) + " " + myClient.getClass.getName + " "
+      + " -Xmx256M" +  deploy.ScalaApplicationMaster
+      + " " + String.valueOf(workerNum) + " " + className + " "
       + String.valueOf(psServer) +" 1>"
       + ApplicationConstants.LOG_DIR_EXPANSION_VAR +
       "/stdout"

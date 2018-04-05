@@ -1,6 +1,9 @@
 package rpc
 
+import protobuf.MatrixDouble.DMatrix
+import protobuf.MatrixLong.Matrix
+
 trait NettyClient {
-  def getPort():String
-  def send():Boolean
+  def sendModel(matrix: Matrix):Boolean
+  def sendParameter(dMatrix: DMatrix): Boolean
 }

@@ -3,7 +3,7 @@ package deploy
 
 import java.util.Collections
 
-import common.{ScheduleMaster, apsMaster}
+import common.{ScheduleMaster, ApsMaster}
 import conf.APSConfiguration
 import org.apache.hadoop.net.NetUtils
 import org.apache.hadoop.yarn.api.ApplicationConstants
@@ -14,10 +14,10 @@ import org.apache.hadoop.yarn.util.Records
 
 import scala.collection.JavaConversions._
 
-
-class ScalaApplicationMaster(apsconf : APSConfiguration) {
+ object ScalaApplicationMaster {
   //args(0) workerNumber args(1) client name
   def main(args: Array[String]): Unit = {
+    val apsconf = new APSConfiguration()
     println("Running ScalaApplicationMaster")
     val workerCores = apsconf.getInt("aps.worker.core",1)
     val workerMemory = apsconf.getInt("aps.worker.memory",128)
@@ -39,15 +39,15 @@ class ScalaApplicationMaster(apsconf : APSConfiguration) {
     priority.setPriority(0)
     println("Setting Resource capability for containers")
     val capability : Resource = Records.newRecord(classOf[Resource])
-    capability.setMemory(128)
-    capability.setVirtualCores(1)
+    capability.setMemory(workerMemory)
+    capability.setVirtualCores(workerCores)
     for ( i <- 0 to numOfContainers){
       val containerRequested = new ContainerRequest(capability,null,null,priority,true)
       rmClient.addContainerRequest(containerRequested)
     }
     var allocatedContainers = 0
     //启动本机程序的master，根据调度器是否训练部分参数决定不同的调度器
-    if (isPs) apsMaster(clientName).start() else ScheduleMaster(clientName).start()
+    if (isPs) ApsMaster(clientName).start() else ScheduleMaster(clientName).start()
     //启动本机master后，启动其他container
     println("Requesting container allocation from ResourceManager")
     while (allocatedContainers < numOfContainers){
@@ -55,7 +55,7 @@ class ScalaApplicationMaster(apsconf : APSConfiguration) {
       for (container : Container <- response.getAllocatedContainers){
         allocatedContainers += 1
         val ctx = Records.newRecord(classOf[ContainerLaunchContext])
-        ctx.setCommands(Collections.singletonList(javahome + " " + common.apsSlave+ " " +
+        ctx.setCommands(Collections.singletonList(javahome + " " + common.ApsSlave+ " " +
           clientName+ " "  +"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
         + "/stdout" + "2> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr"))
         println("Starting container on node : " + container.getNodeHttpAddress)

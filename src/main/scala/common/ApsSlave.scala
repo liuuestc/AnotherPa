@@ -2,13 +2,13 @@ package common
 
 import client.Client
 
-class apsSlave(className : String){
+class ApsSlave(className : String){
 
   val client = Class.forName(className).newInstance().asInstanceOf[Client]
 }
 
-object apsSlave {
+object ApsSlave {
   def main(args: Array[String]): Unit = {
-    val aps = new apsSlave(args(0))
+    val aps = new ApsSlave(args(0))
   }
 }
