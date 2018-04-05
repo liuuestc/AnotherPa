@@ -281,4 +281,13 @@ public class APSConfiguration extends YarnConfiguration {
     public String getJarPath() {
       return get("aps.jar");
     }
+
+    public APSConfiguration setDataPath(String dataPath){
+      set("aps.data_path",dataPath);
+      return this;
+    }
+
+    public String getDataPath(){
+      return get("aps.data_path");
+    }
 }

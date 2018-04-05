@@ -8,6 +8,7 @@ class LDA extends Client{
 
   def initial(conf: APSConfiguration): Unit ={
     conf.setAppName("LDA")
+    conf.setDataPath("")
     conf.set("LDAClasspath",this.getClass.getName)
     conf.setJarPath("Hello World")
   }

@@ -5,15 +5,11 @@ import akka.cluster.Cluster
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
 import akka.event.Logging
 import communication.{NettyServerStart, NodeRef}
-import ipc.client.NettyClient
-import ipc.server.NettyServer
 
 class WorkerListener extends Actor {
   val log = Logging(context.system,this)
   val cluster = Cluster.get(context.system)
   var masterRef : ActorRef = null
-  val echoClient = new NettyClient()
-  val nettyServer = new Thread(new NettyServer())
 
 
 
@@ -38,7 +34,6 @@ class WorkerListener extends Actor {
 
     //netty 服务器启动
     case NettyServerStart =>
-      nettyServer.start()
     //netty客户端传完数据停止
 
 

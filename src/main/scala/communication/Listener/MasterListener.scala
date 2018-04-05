@@ -5,7 +5,7 @@ import akka.cluster.Cluster
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
 import akka.event.Logging
 import communication.{NettyServerStart, NodeRef}
-import ipc.server.NettyServer
+import ipc.Server.ServerNettyImpl
 import util.Utilities
 
 import scala.collection.mutable
@@ -14,7 +14,7 @@ class MasterListener extends Actor{
   val log = Logging(context.system,this)
   val cluster = Cluster.get(context.system)
   val masterHost =Utilities.getLocalHost
-  val nettyServer = new Thread(new NettyServer())
+  val nettyServer = new Thread(new ServerNettyImpl())
 
   val parameterListener = context.actorOf(Props[ParameterListener],"parameter")
   val transactionListener = context.actorOf(Props[TransactionListener],"transaction")

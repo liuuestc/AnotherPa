@@ -25,6 +25,7 @@ object ScalaClient {
     val workerNum = apsconf.getInt("aps.worker.num",1)
     val amMemory = apsconf.getInt("aps.am.memory",256)
     val amCore = apsconf.getInt("aps.am.core",1)
+    val dataPath = apsconf.getDataPath
     val isPs = Class.forName(className).newInstance().asInstanceOf[Client].isPs
     val psServer = if(isPs) 0 else 1
     println("Initializing YARN configuration")
@@ -57,7 +58,7 @@ object ScalaClient {
     amContainer.setCommands(Collections.singletonList("/usr/local/jdk1.8.0_161/bin/java"
       + " -Xmx256M" +  deploy.ScalaApplicationMaster
       + " " + String.valueOf(workerNum) + " " + className + " "
-      + String.valueOf(psServer) +" 1>"
+      + String.valueOf(psServer) +" " +dataPath+" "+" 1>"
       + ApplicationConstants.LOG_DIR_EXPANSION_VAR +
       "/stdout"
       + " 2>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR
