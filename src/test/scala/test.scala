@@ -4,7 +4,7 @@ import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 import communication.Listener.{MasterListener, WorkerListener}
 import conf.APSConfiguration
-import io.BlockManger
+import io.BlockMangerImpl
 import util.Utilities
 
 class test{
@@ -25,7 +25,7 @@ object Slave extends App{
 }
 
 object tess extends App{
-  val t = new BlockManger()
+  val t = new BlockMangerImpl()
 
   println(t.getClass.getSimpleName)
   println(Utilities.getLocalPort)

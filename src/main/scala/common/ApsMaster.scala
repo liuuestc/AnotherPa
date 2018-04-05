@@ -3,7 +3,7 @@ package common
 import akka.actor.ActorRef
 import client.Client
 import common.workerInfo.WorkerId
-import io.{BlockManger, ModelInfo}
+import io.{BlockMangerImpl, ModelInfo}
 import ipc.{NettyInfo, ServerNettyImpl}
 
 import scala.collection.JavaConversions._
@@ -14,7 +14,7 @@ class ApsMaster(className : String) {
   val actorRefs = new ListBuffer[ActorRef]()
   val workerIds = new ListBuffer[WorkerId]()
   val models = new ListBuffer[ModelInfo]()
-  val blockManger = new BlockManger()
+  val blockManger = new BlockMangerImpl()
   var times = 0     //训练的次数
   var bias : Double = 0
   val partBias =  new mutable.HashMap[String,Double]()   // 每个worker上传的误差

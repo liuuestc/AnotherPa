@@ -7,15 +7,176 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89ea019e-b2a6-42ec-9df0-c8a884ce66b7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/io/BlockMangerImpl.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/BlockManger.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/ModelInfo.java" afterPath="$PROJECT_DIR$/src/main/java/io/ModelInfo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/ModelManager.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/ParameterManager.java" afterPath="$PROJECT_DIR$/src/main/java/io/ParameterManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/ServerNetty.java" afterPath="$PROJECT_DIR$/src/main/java/ipc/ServerNetty.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" afterPath="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/test.scala" afterPath="$PROJECT_DIR$/src/test/scala/test.scala" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.conf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application_slave.conf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/aps-default.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/Client$class.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/Client.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsMaster$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsMaster.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsSlave$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ApsSlave.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ScheduleMaster$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ScheduleMaster.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/location/Location.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/location/LocationManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/Id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/PSAgentId.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/ParameterServerId.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/WorkerGroupId.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/workerInfo/WorkerId.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSFailure$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSFailure.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSSuccess$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/APSSuccess.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ActorSystemRef.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ActorSystemUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/InitialModel$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/InitialModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/LearningRef$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/LearningRef.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/LearningListener$$anonfun$receive$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/LearningListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/MasterListener$$anonfun$getMinactorSelection$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/MasterListener$$anonfun$receive$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/MasterListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/ParameterListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/TransactionListener$$anonfun$receive$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/TransactionListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/WorkerListener$$anonfun$receive$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/Listener/WorkerListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/MasterRef$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/MasterRef.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelCache$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelCache.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelId$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelId.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelSaved$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelSaved.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelTrainFinish$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ModelTrainFinish.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyId$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyId.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyServerStart$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/NettyServerStart.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/NodeRef$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/NodeRef.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ReadBlock$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/ReadBlock.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/SlaveAkkaSystem.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/StartAkkaSystem.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/TrainModel$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/TrainModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransData$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransData.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransactionRef$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/communication/TransactionRef.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/conf/APSConfiguration.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$3.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$4.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$$anonfun$main$5.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaApplicationMaster.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient$$anonfun$main$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient$$anonfun$main$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/deploy/ScalaClient.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/examples/LDA.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/AngelException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/DoNotRetryIOException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/InvalidParameterException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/RemoteException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/RetriesExhaustedException$ThrowableWithExtraContext.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/RetriesExhaustedException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/ServerRowNotFoundException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/StandbyException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/TimeOutException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/UnknownProtocolException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exception/UnvalidIdStrException.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/BlockInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/BlockManger.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/ModelInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/ModelManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/ParameterManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ClientNetty.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ClientNettyImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/NettyInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ServerNetty.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/ServerNettyImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/client/EchoClientHandler.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/client/NettyClient$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/client/NettyClient.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/server/EchoServerHandler.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/server/NettyServer$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ipc/server/NettyServer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrix$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrix$Builder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrix.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DMatrixOrBuilder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRow$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRow$Builder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRow.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble$DRowOrBuilder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixDouble.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Matrix$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Matrix$Builder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Matrix.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$MatrixOrBuilder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Row$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Row$Builder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$Row.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong$RowOrBuilder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/protobuf/MatrixLong.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/rpc/NettyClient.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/rpc/NettyServer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/ByteUnit.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/TextMultiOutputFormat$MultiSplitRecordWriter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/TextMultiOutputFormat$NewDataOutputStream.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/TextMultiOutputFormat.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/Utilities.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestAkkaApplicaitonConf$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestAkkaApplicaitonConf$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestAkkaApplicaitonConf.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestClient$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestClient$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestClient.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestConfiguration$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestConfiguration$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestConfiguration.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestServer$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestServer$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ForSmallTest/TestServer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Hello$class.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Hello.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Main$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Main$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Main.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/SayHello.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Slave$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Slave$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/Slave.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/TestCreateActorSystem$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/TestCreateActorSystem$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/TestCreateActorSystem.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/tess$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/tess$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/tess.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/test.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/testReflect$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/testReflect$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/communication/testReflect.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/protobuf/testMatrixDouble.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/testForString.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/testUtils$.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/testUtils$delayedInit$body.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/testUtils.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,7 +207,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
-              <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+              <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding>
                 <element signature="e#195#196#0" expanded="true" />
                 <element signature="e#219#220#0" expanded="true" />
@@ -67,12 +228,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testUtils.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="testUtils.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/testUtils.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
               <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApsMaster.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+              <folding>
+                <element signature="e#16#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/test.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6">
+              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+              <folding>
+                <element signature="e#23#61#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,11 +284,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockMangerImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlockMangerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/BlockMangerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="374">
+              <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#251#252#0" expanded="true" />
@@ -138,32 +323,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/io/ParameterManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
-              <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding>
                 <element signature="e#747#748#0" expanded="true" />
                 <element signature="e#791#792#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testMatrixDouble.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/protobuf/testMatrixDouble.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerNetty.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ServerNetty.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -212,7 +375,6 @@
         <option value="$PROJECT_DIR$/src/main/scala/communication/Listener/WorkerListener.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/client/ApsClient.scala" />
         <option value="$PROJECT_DIR$/src/main/java/util/Utilities.java" />
-        <option value="$PROJECT_DIR$/src/test/scala/test.scala" />
         <option value="$PROJECT_DIR$/src/main/resources/aps-default.xml" />
         <option value="$PROJECT_DIR$/src/main/scala/Utils.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/client/APSClients.scala" />
@@ -239,7 +401,6 @@
         <option value="$PROJECT_DIR$/src/test/scala/testUtils.scala" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/ClientNettyImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/protobuf/testMatrixLong.java" />
-        <option value="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" />
         <option value="$PROJECT_DIR$/src/test/java/protobuf/testMatrixDouble.java" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/ServerNetty.java" />
         <option value="$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java" />
@@ -251,6 +412,8 @@
         <option value="$PROJECT_DIR$/src/main/java/io/BlockManger.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/BlockManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/BlockMangerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/test.scala" />
       </list>
     </option>
   </component>
@@ -759,7 +922,7 @@
       <workItem from="1522241394642" duration="1903000" />
       <workItem from="1522331562425" duration="661000" />
       <workItem from="1522387647353" duration="18350000" />
-      <workItem from="1522588923600" duration="40314000" />
+      <workItem from="1522588923600" duration="40453000" />
     </task>
     <task id="LOCAL-00001" summary="second">
       <created>1522225308144</created>
@@ -779,7 +942,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95500000" />
+    <option name="totallyTimeSpent" value="95639000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -792,12 +955,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.50432277" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -813,7 +975,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.49567723" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24069479" sideWeight="0.49423632" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24069479" sideWeight="0.49423632" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33069164" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1040,14 +1202,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/test.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/conf/APSConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="556">
@@ -1235,24 +1389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/testUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/protobuf/testMatrixDouble.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1266,7 +1402,7 @@
         <state relative-caret-position="176">
           <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1274,7 +1410,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ipc/ServerNettyImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
           <folding>
             <element signature="e#195#196#0" expanded="true" />
             <element signature="e#219#220#0" expanded="true" />
@@ -1311,7 +1447,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/io/ParameterManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding>
             <element signature="e#747#748#0" expanded="true" />
             <element signature="e#791#792#0" expanded="true" />
@@ -1346,8 +1482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/BlockMangerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state relative-caret-position="374">
+          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#251#252#0" expanded="true" />
@@ -1357,6 +1493,34 @@
             <element signature="e#485#486#0" expanded="true" />
             <element signature="e#513#514#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <element signature="e#16#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/test.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="e#23#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/testUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
