@@ -1,5 +1,5 @@
 /*
- * Tencent is pleased to support the open source community by making Angel available.
+ * Tencent is pleased to support the open source community by making APS available.
  *
  * Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
  *
@@ -17,7 +17,7 @@
 package common.location;
 
 /**
- * Location of Angel Master/PS/Worker.
+ * Location of APS Master/PS/Worker.
  */
 public class Location {
   /**ip address*/

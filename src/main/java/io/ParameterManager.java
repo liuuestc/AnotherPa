@@ -2,13 +2,12 @@ package io;
 
 import protobuf.MatrixLong;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 // 用于上传到ps-server端和下载的参数
 public class ParameterManager {
     private final int id = UUID.randomUUID().hashCode();// 每个
-    private MatrixLong.Matrix arrayLists;
+    private MatrixLong.Matrix matrix;
     private int column;
     private int row;
 
@@ -33,10 +32,10 @@ public class ParameterManager {
     }
 
     public MatrixLong.Matrix getArrayLists() {
-        return arrayLists;
+        return matrix;
     }
 
-    public void setArrayLists(MatrixLong.Matrix arrayLists) {
-        this.arrayLists = arrayLists;
+    public void setArrayLists(MatrixLong.Matrix matrix) {
+        this.matrix = matrix;
     }
 }

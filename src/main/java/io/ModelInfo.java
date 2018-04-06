@@ -4,7 +4,6 @@ import common.workerInfo.WorkerId;
 import org.apache.hadoop.fs.Path;
 import protobuf.MatrixLong;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class ModelInfo {
@@ -13,17 +12,14 @@ public class ModelInfo {
     private int iter = 0;      //目前训练的次数
     private Path cachePath;  // 缓存的地址
     private WorkerId workerId;  //目前所在的worker
-    private MatrixLong matrixLong;
+    private long matrixId;
 
-    public long getModelId() {
-        return modelId;
-    }
-    public MatrixLong getMatrixLong() {
-        return matrixLong;
+    public long getMatrixId() {
+        return matrixId;
     }
 
-    public void setMatrixLong(MatrixLong matrixLong) {
-        this.matrixLong = matrixLong;
+    public void setMatrixId(Long matrixId) {
+        this.matrixId = matrixId;
     }
 
     public int getIter() {

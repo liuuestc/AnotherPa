@@ -18,6 +18,11 @@ package common.workerInfo;
 
 
 import exception.UnvalidIdStrException;
+import io.BlockInfo;
+import io.ModelInfo;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * The type Worker id.
@@ -25,7 +30,8 @@ import exception.UnvalidIdStrException;
 public class WorkerId extends Id {
   protected static String WORKER = "Worker";
   private WorkerGroupId workerGroupId;
-
+  private List<BlockInfo> blockInfos;
+  private List<ModelInfo> modelInfos;
   /**
    * Instantiates a new worker id with 'workerGroupId' and 'workerIndex'
    *
@@ -35,9 +41,28 @@ public class WorkerId extends Id {
   public WorkerId(WorkerGroupId workerGroupId, int workerIndex) {
     super(workerIndex);
     this.workerGroupId = workerGroupId;
+    this.blockInfos = new LinkedList<BlockInfo>();
+    this.modelInfos = new LinkedList<ModelInfo>();
   }
 
-  /**
+
+  public void setModelInfo( ModelInfo modelInfo){
+      modelInfos.add(modelInfo);
+  }
+
+    public List<ModelInfo> getModelInfos() {
+        return modelInfos;
+    }
+
+    public void setBlockInfo(BlockInfo blockInfo) {
+      blockInfos.add(blockInfo);
+  }
+
+    public List<BlockInfo> getBlockInfos() {
+        return blockInfos;
+    }
+
+    /**
    * Instantiates a new Worker id with 'idStr'
    *<p>
    *   'idStr' must match <code>Worker_XXX_XXX</code>

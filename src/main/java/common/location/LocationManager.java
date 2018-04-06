@@ -136,7 +136,7 @@ public class LocationManager {
    * Are all pss registered
    * @return true mean all pss have registered to master
    */
-  public boolean isAllPsRegisted() {
+  public boolean isAllPsRegistered() {
     return (psIds != null) && (psIds.length == psIdToLocMap.size());
   }
 }
