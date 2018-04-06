@@ -3,7 +3,7 @@ package deploy
 
 import java.util.Collections
 
-import common.{ScheduleMaster, ApsMaster}
+import common.{ApsMaster, ScheduleMaster}
 import conf.APSConfiguration
 import org.apache.hadoop.net.NetUtils
 import org.apache.hadoop.yarn.api.ApplicationConstants
@@ -11,6 +11,7 @@ import org.apache.hadoop.yarn.api.records._
 import org.apache.hadoop.yarn.client.api.{AMRMClient, NMClient}
 import org.apache.hadoop.yarn.client.api.AMRMClient.ContainerRequest
 import org.apache.hadoop.yarn.util.Records
+import util.Utilities
 
 import scala.collection.JavaConversions._
 
@@ -47,8 +48,9 @@ import scala.collection.JavaConversions._
       rmClient.addContainerRequest(containerRequested)
     }
     var allocatedContainers = 0
+    val host = Utilities.getLocalHost
     //启动本机程序的master，根据调度器是否训练部分参数决定不同的调度器
-    if (isPs) ApsMaster(clientName,dataPath,numOfContainers).start() else ScheduleMaster(clientName,dataPath,numOfContainers).start()
+    if (isPs) ApsMaster(clientName,dataPath,numOfContainers,host,apsconf).start() else ScheduleMaster(clientName,dataPath,numOfContainers,host,apsconf).start()
     //启动本机master后，启动其他container
     println("Requesting container allocation from ResourceManager")
     while (allocatedContainers < numOfContainers){
@@ -57,7 +59,7 @@ import scala.collection.JavaConversions._
         allocatedContainers += 1
         val ctx = Records.newRecord(classOf[ContainerLaunchContext])
         ctx.setCommands(Collections.singletonList(javahome + " " + common.ApsSlave+ " " +
-          clientName+ " " + dataPath + " " +"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
+          clientName+ " "+host+" " +"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
         + "/stdout" + "2> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr"))
         println("Starting container on node : " + container.getNodeHttpAddress)
         nmClient.startContainer(container,ctx)
