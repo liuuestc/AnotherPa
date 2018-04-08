@@ -6,23 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89ea019e-b2a6-42ec-9df0-c8a884ce66b7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/ModelInfo.java" afterPath="$PROJECT_DIR$/src/main/java/io/ModelInfo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" afterPath="$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/common/ApsSlave.scala" afterPath="$PROJECT_DIR$/src/main/scala/common/ApsSlave.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/ActorSystemUtils.scala" afterPath="$PROJECT_DIR$/src/main/scala/communication/ActorSystemUtils.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/Listener/LearningListener.scala" afterPath="$PROJECT_DIR$/src/main/scala/communication/Listener/LearningListener.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/Listener/MasterListener.scala" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/Listener/TransactionListener.scala" afterPath="$PROJECT_DIR$/src/main/scala/communication/Listener/TransactionListener.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/Listener/WorkerListener.scala" afterPath="$PROJECT_DIR$/src/main/scala/communication/Listener/WorkerListener.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/Message.scala" afterPath="$PROJECT_DIR$/src/main/scala/communication/Message.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/SlaveAkkaSystem.scala" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/communication/StartAkkaSystem.scala" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/deploy/ScalaClient.scala" afterPath="$PROJECT_DIR$/src/main/scala/deploy/ScalaClient.scala" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/communication/TestCreateActorSystem.scala" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/test.scala" afterPath="$PROJECT_DIR$/src/test/scala/test.scala" />
-    </list>
+    <list default="true" id="89ea019e-b2a6-42ec-9df0-c8a884ce66b7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/Server/target/" />
@@ -126,8 +110,8 @@
       <file leaf-file-name="ApsMaster.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="-526">
+              <caret line="114" column="27" lean-forward="false" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
               <folding>
                 <element signature="e#16#37#0" expanded="true" />
               </folding>
@@ -765,7 +749,7 @@
       <workItem from="1522241394642" duration="1903000" />
       <workItem from="1522331562425" duration="661000" />
       <workItem from="1522387647353" duration="18350000" />
-      <workItem from="1522588923600" duration="74258000" />
+      <workItem from="1522588923600" duration="74311000" />
     </task>
     <task id="LOCAL-00001" summary="second">
       <created>1522225308144</created>
@@ -785,7 +769,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129444000" />
+    <option name="totallyTimeSpent" value="129497000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -798,6 +782,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -818,7 +803,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.49567723" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24069479" sideWeight="0.49423632" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24069479" sideWeight="0.49423632" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26873198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1400,8 +1385,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/common/ApsMaster.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state relative-caret-position="-526">
+          <caret line="114" column="27" lean-forward="false" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
           <folding>
             <element signature="e#16#37#0" expanded="true" />
           </folding>
