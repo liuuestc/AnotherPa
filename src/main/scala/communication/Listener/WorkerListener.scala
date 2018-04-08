@@ -1,25 +1,35 @@
 package communication.Listener
 
-import akka.actor.{Actor, ActorRef}
-import akka.cluster.Cluster
+import akka.actor.{ActorSelection, Props}
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
-import akka.event.Logging
-import communication.{NettyServerStart, NodeRef}
+import common.workerInfo.WorkerInfo
+import communication._
+import io.ModelInfo
+import ipc.Server.ServerNettyImpl
+import protobuf.MatrixLong.Matrix
+import util.Utilities
+import scala.concurrent.ExecutionContext.Implicits.global
 
-class WorkerListener extends Actor {
-  val log = Logging(context.system,this)
-  val cluster = Cluster.get(context.system)
-  var masterRef : ActorRef = null
+import scala.collection.mutable.ListBuffer
+import scala.concurrent.Future
+import scala.util.Success
 
+class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: ListBuffer[Matrix], parameter: ListBuffer[Matrix]) extends AkkaCluter {
+  var masterRef : ActorSelection = null
+  val workerInfo = new WorkerInfo(1L,Utilities.getLocalHost,1)
+  //传输model的actor
+  val transactionListener = context.actorOf(Props[TransactionListener],"transaction")
+  //传输parameter的Actor
+  val parameterListener = context.actorOf(Props[ParameterListener],"parameter")
+  //模型训练Actor
+  val learningListener = context.actorOf(Props[LearningListener], "learning")
+  val nettyServer = new ServerNettyImpl
+  workerInfo.setNettyPort(nettyServer.initial())
 
+  //当前训练的model和本机的model列表
+  var currentModel : ModelInfo = null
+  val models = new ListBuffer[ModelInfo]
 
-  override def preStart(): Unit = {
-    cluster.subscribe(self, classOf[MemberEvent],classOf[UnreachableMember])
-  }
-
-  override def postStop() = {
-    cluster.unsubscribe(self)
-  }
 
   override def receive: Receive = {
     case x : MemberUp =>
@@ -28,15 +38,53 @@ class WorkerListener extends Actor {
     case x : MemberRemoved => log.info("Member is Removed: {}",x.member)
     case x : MemberEvent =>
 
-    case NodeRef(ref) =>
-      masterRef = ref
-      masterRef ! "HEllo"
+      //启动注册后，更新本机的masterRef
+    case NodeRef(id,ref) =>
+      masterRef = cluster.system.actorSelection(ref)
+      workerInfo.setId(id)
+      masterRef ! WorkerInfoTrans(workerInfo.getId,workerInfo.getLocalhost,workerInfo.getNettyPort)
 
-    //netty 服务器启动
-    case NettyServerStart =>
-    //netty客户端传完数据停止
-
-
+    case ReadBlock(blockInfos) =>
+      readBlock(blockInfos)
+      workerInfo.setBlockInfo(blockInfos)
+      masterRef ! ReadStatus(workerInfo.getId,"success")
+    case InitialModelAndParam =>
+      initialModel()
+      transParamter()
+      masterRef ! InitialModelSuccess(workerInfo.getId)
+    case TrainModelAndParam =>
+      trainModelandParams()
+      masterRef ! TrainModelAndParamFinish(workerInfo.getId,workerInfo.getBias)
+    case ModelTrainFinish(outputPath) =>
+      doSaveModel()
+      masterRef ! ModelFinishAndSaved(workerInfo.getId)
+    case TransMode(host,ip,id) => {
+      val result = Future{
+        tranModel()
+      }
+      result.onComplete{
+        case Success(value) =>
+          models -= currentModel
+          if (value) masterRef ! TransModeSuccess(workerInfo.getId,currentModel.getMatrixId,models.size,id)
+          currentModel =null
+      }
+    }
+    case TransPara(host,ip) => transParamter()
     case test : String => println("HEllo , succeed")
+  }
+
+  //将模型存储
+  def doSaveModel(){}
+  //训练模型
+  def trainModelandParams(){}
+  //初始化模型
+  def initialModel(){}
+  //
+  def tranModel(): Boolean={true}
+  //传输parameters
+  def transParamter():Boolean = {true}
+  //读取block，并将数据放到TrainData中
+  def readBlock(blockInfos: String): Unit ={
+
   }
 }

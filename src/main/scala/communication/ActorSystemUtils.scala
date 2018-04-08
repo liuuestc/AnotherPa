@@ -12,13 +12,10 @@ case class TransactionRef(name: String,ip: String,port : Int) extends ActorSyste
 case class LearningRef(name: String, ip: String,port : Int) extends ActorSystemRef
 
 
-class ActorSystemUtils {
-
-  //创建actorSystem并返回（ActorSystem，port）
-  def createActorSystem(name: String, host: String, conf: APSConfiguration, isMaster: Boolean): (ActorSystem, Int) = {
+class ActorSystemUtils(name: String, host: String, conf: APSConfiguration, isMaster: Boolean) {
+  def createActorSystem: (ActorSystem, Int) = {
       doCreateActorSystem(name, host, conf, isMaster)
   }
-
   private def doCreateActorSystem(name: String, host: String,conf: APSConfiguration ,isMaster: Boolean): (ActorSystem, Int) = {
     val port = if(isMaster) conf.getInt("aps.akka.cluster.master.port",0) else 0
     val ports = conf.getStrings("aps.actorSystemSeeds.port")
@@ -34,6 +31,8 @@ class ActorSystemUtils {
          |akka.cluster.seed-nodes=["akka.tcp://$name@$host:$port1","akka.tcp://$name@$host:$port1"]
          |akka.cluster.log-cluster-lifecycle-events = $lifecycleEvents
          |akka.log-dead-letters = $lifecycleEvents
+         |akka.seed-node-timeout = 360s
+         |akka.auto-down-unreachable-after = 10s
          |akka.log-dead-letters-during-shutdown = $lifecycleEvents
       """.stripMargin)
     //创建ActorSystem对象
@@ -43,11 +42,13 @@ class ActorSystemUtils {
     //返回（ActorSystem，int）元组
     (actorSystem, boundPort)
   }
+}
 
+object ActorSystemUtils{
+  def apply(name: String, host: String, conf: APSConfiguration, isMaster: Boolean): ActorSystemUtils = new ActorSystemUtils(name, host, conf, isMaster)
   //根据根据名字查找对应的akka Address，用于actorSelection
   def getAkkaAddress(actorSystemRef: ActorSystemRef): String = actorSystemRef match {
     case LearningRef(name,ip,port) => s"akka://$name@$ip:$port/user/worker/learning"
     case TransactionRef(name,ip,port) =>  s"akka://$name@$ip:$port/user/worker/transaction"
   }
 }
-

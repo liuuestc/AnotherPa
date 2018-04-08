@@ -63,7 +63,7 @@ object ScalaClient {
       "/stdout"
       + " 2>" + ApplicationConstants.LOG_DIR_EXPANSION_VAR
       + "/stderr"))
-    amContainer.setLocalResources(Collections.singletonMap("first-yarn-app.jar",appMasterJar))
+    amContainer.setLocalResources(Collections.singletonMap("yarn-app.jar",appMasterJar))
     amContainer.setEnvironment(appMasterEnv)
     println("Initializing ApplicatonSubmissionContext")
     val appContext : ApplicationSubmissionContext = app.getApplicationSubmissionContext

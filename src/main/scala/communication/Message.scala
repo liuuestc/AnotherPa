@@ -4,21 +4,35 @@ import akka.actor.ActorRef
 import io.BlockInfo
 
 //
-case class NodeRef(ref: ActorRef)
+case class Registration()
 
-case class APSSuccess()
-case class APSFailure()
-case class ReadBlock(blockInfo: BlockInfo)
+case class NodeRef(id:Long,ref: String)
+
+//传输给worker，使之读取String
+case class ReadBlock(blockInfos: String)
+case class ReadStatus(id : Long, status: String)     //success or failure
 
 
 case class NettyServerStart()
 case class NettyId(host: String, port : Int) //返回
 
-case class InitialModel()
-case class TrainModel()
-case class ModelTrainFinish()    //该模型训练结束并存储
+case class InitialModelAndParam()              //所有的参数初始化
+case class InitialModelSuccess(id : Long)
+
+
+case class TrainModelAndParam()
+case class TrainModelAndParamFinish(id : Long , bias: Double)
+case class ModelTrainFinish(outputPath : String)    //该模型训练结束并存储
+case class ModelFinishAndSaved(id: Long)
 case class ModelCache()          //将模型缓存
 case class ModelSaved()          //返回模型存储成功
 case class ModelId()
 
-case class TransData(host: String, port: Int)
+case class TransMode(host: String, port: Int, id : Long)
+case class TransPara(host: String, port: Int)
+case class TransModeSuccess(id:Long, modeId:Long, modelSize: Long,nextId: Long)
+
+
+case class TransFailure()
+case class TranSuccess()
+case class WorkerInfoTrans(id: Long, host:String, nettyPort: Int)

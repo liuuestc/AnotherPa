@@ -2,20 +2,13 @@ package communication
 
 import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
-import communication.Listener.{MasterListener, WorkerListener}
+import communication.Listener.WorkerListener
 import conf.APSConfiguration
 import io.BlockMangerImpl
 import util.Utilities
 
 class test{
 
-}
-object Main extends App{
-  println("Start simpleClusterListener")
-  val actorSystem = ActorSystem("apsAkkaSystem",ConfigFactory.load("application.conf"))
-  val simpleClusterListenerMaster = actorSystem.actorOf(Props[MasterListener],"SimpleClusterListenerMaster")
-  //  Thread.sleep(1000)
-  simpleClusterListenerMaster ! NettyServerStart
 }
 
 object Slave extends App{
