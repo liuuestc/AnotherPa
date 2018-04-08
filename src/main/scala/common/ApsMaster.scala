@@ -9,22 +9,20 @@ import common.workerInfo.{WorkerId, WorkerInfo}
 import communication._
 import communication.Listener.{AkkaCluter, ParameterListener}
 import conf.APSConfiguration
-import io.{BlockMangerImpl, ModelInfo}
+import io.{BlockMangerImpl, ModelInfo, ParameterInfo}
 import ipc.Client.ClientNettyImpl
-import ipc.NettyInfo
 import ipc.Server.ServerNettyImpl
 import protobuf.MatrixLong.Matrix
-import rpc.NettyClient
 import util.Utilities
-import scala.concurrent.ExecutionContext.Implicits.global
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.JavaConversions._
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
 //master上只有block和model的信息
-class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, host:String,conf:APSConfiguration) extends AkkaCluter{
+class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, host:String,conf:APSConfiguration, outputPath: String) extends AkkaCluter{
   val workerIds = new ListBuffer[WorkerInfo]()
   val models = new ListBuffer[ModelInfo]()
   val blockManger = new BlockMangerImpl()
@@ -32,6 +30,9 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
   val partBias =  new mutable.HashMap[ModelInfo,Double]()   // 每个worker上传的误差
   var finished =0
 
+
+  val masterParamterInfo = new ParameterInfo()
+  val listBuffer = new ListBuffer[ParamInformation]
   //训练的模型
   val client = Class.forName(className).newInstance().asInstanceOf[Client]
 
@@ -58,7 +59,7 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
   val (actorSystem, boundPort) = new ActorSystemUtils("actorSystem",host,conf,true).createActorSystem
 
   def start(): Unit ={
-
+    val masterListener = actorSystem.actorOf(Props(new ApsMaster(className,dataPath,numberOfContainer,host,conf,outputPath)),"master")
   }
 
   override def receive: Receive = {
@@ -88,7 +89,7 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
         if (numberOfContainer == workerIds.count(_.isLoaded)) {
           log.info("start Initial")
           workers.foreach(worker =>{
-            worker._2 ! InitialModelAndParam
+            worker._2 ! InitialModelAndParam(masterParamterInfo.getRow,masterParamterInfo.getColumn)
           })
           workerIds.foreach(worker =>{
             worker.setRunning(true)
@@ -104,14 +105,16 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
           })
       }
 
-    case TrainModelAndParamFinish(id,bias) =>{
+    case TrainModelAndParamFinish(iid,bias) =>{
       val ref = sender()
+      //向worker发送结束消息
       if(computeBias() || iteratorFinish()) {
+        models.find(_.getWorkerId ==iid).get.setFinished(true)
         ref ! ModelTrainFinish("")
       }
         //没有结束则将本机的model和parameter传输并将运行状态设置为false
       else {
-
+        workerIds.find(_.getId == iid).get.setRunning(false)
         ref ! TransPara(localHost,port)
         val (h,p,id) = findNextWorker()
         ref ! TransMode(h,p,id)
@@ -123,21 +126,43 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
       models.find(_.getModelId==modeId).get.setWorkerId(nextId)
       val worker = workerIds.find(_.getId == id).get
         worker.getModelIds.remove(id)
-      workerIds.find(_.getId == nextId).get.addModelIds(modeId)
+      val nextWorker = workerIds.find(_.getId == nextId).get
+        nextWorker.addModelIds(modeId)
       if (modelSize > 0) {
+        //如果worker有等待训练的模型则先将master的参数发给worker之后让他开始训练
         val f = Future{
           new ClientNettyImpl().sendParameter(null,worker.getLocalhost,worker.getNettyPort)
         }
         f.onComplete{
-          case Success(value) => ref ! TrainModelAndParam
+          case Success(value) =>
+            ref ! TrainModelAndParam
+            worker.setRunning(true)
+          case Failure(e) => e.printStackTrace()   //可以进行重试
+        }
+      }
+      if (nextWorker.isRunning == false){
+        nextWorker.setRunning(true)
+        val f = Future{
+          new ClientNettyImpl().sendParameter(null,nextWorker.getLocalhost,nextWorker.getNettyPort)
+        }
+        f.onComplete{
+          case Success(value) =>
+            workers.get(nextId).get ! TrainModelAndParam
+            worker.setRunning(true)
           case Failure(e) => e.printStackTrace()   //可以进行重试
         }
       }
 
-    case ModelFinishAndSaved(id) =>
-      finished +=1
-      if (finished == numberOfContainer)
-        closeSystem()
+    //初始化每个modelInfo
+    case ModelInformation(id,modelId,matrixId) =>
+      val modelInfo = new ModelInfo
+      modelInfo.setCachePath(outputPath+modelId)
+      modelInfo.setMatrixId(matrixId)
+      modelInfo.setModelId(modelId)
+      modelInfo.setWorkerId(id)
+      models.append(modelInfo)
+    //接受worker结束信号并统计model训练完成的计数
+    case ModelFinishAndSaved(id) => if (models.count(_.isFinished) == numberOfContainer)  closeSystem()
   }
 
   //
@@ -167,7 +192,7 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
     val id = UUID.randomUUID().getLeastSignificantBits.hashCode()
     workers.put(id,slaveAS)
     log.info(x.member.address.toString)
-    slaveAS ! NodeRef(id,s"akka://actorSystem@$localHost:$port/user/worker/")      //注册后将AM的actorRef返回给slave
+    slaveAS ! NodeRef(id,s"akka://actorSystem@$localHost:$port/user/master/")      //注册后将AM的actorRef返回给slave
   }
   //当某个actorSystem的有故障关闭后，重新启动某个actorSystem后的恢复工作
   def recoverEnvironment() = ???
@@ -176,8 +201,7 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
 
 
 object ApsMaster{
-  def apply(className: String, dataPath: String, numberOfContainer: Int, host: String, conf: APSConfiguration): ApsMaster = new ApsMaster(className, dataPath, numberOfContainer, host, conf)
-
+  def apply(className: String, dataPath: String, numberOfContainer: Int, host: String, conf: APSConfiguration, outputPath: String): ApsMaster = new ApsMaster(className, dataPath, numberOfContainer, host, conf, outputPath)
   def main(args: Array[String]): Unit = {
 
   }

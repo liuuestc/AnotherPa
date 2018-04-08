@@ -2,6 +2,7 @@ package common.workerInfo;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 //临时使用
 public class WorkerInfo {
@@ -12,7 +13,6 @@ public class WorkerInfo {
     private List<Long> modelIds = new LinkedList<Long>();
     private Long parasId;
     private boolean Loaded = false;
-    private double bias = 0;
     private boolean inited = false;
 
     public boolean isRunning() {
@@ -31,14 +31,6 @@ public class WorkerInfo {
 
     public void setInited(boolean inited) {
         this.inited = inited;
-    }
-
-    public double getBias() {
-        return bias;
-    }
-
-    public void setBias(double bias) {
-        this.bias = bias;
     }
 
     public boolean isLoaded() {

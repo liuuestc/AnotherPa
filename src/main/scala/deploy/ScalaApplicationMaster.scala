@@ -26,6 +26,7 @@ import scala.collection.JavaConversions._
     val clientName = args(1)
     val isPs = if (Integer.valueOf(2) == 0) true else false
     val dataPath = args(3)
+    val outputPath = args(4)
     val javahome = apsconf.getStrings("java_home","/usr/local/jdk1.8.0_161") + "/bin/java"
     println("Initializing AMRMCLient")
     val rmClient : AMRMClient[ContainerRequest] = AMRMClient.createAMRMClient()
@@ -50,7 +51,7 @@ import scala.collection.JavaConversions._
     var allocatedContainers = 0
     val host = Utilities.getLocalHost
     //启动本机程序的master，根据调度器是否训练部分参数决定不同的调度器
-    if (isPs) ApsMaster(clientName,dataPath,numOfContainers,host,apsconf).start() else ScheduleMaster(clientName,dataPath,numOfContainers,host,apsconf).start()
+    if (isPs) ApsMaster(clientName,dataPath,numOfContainers,host,apsconf,outputPath).start() else ScheduleMaster(clientName,dataPath,numOfContainers,host,apsconf).start()
     //启动本机master后，启动其他container
     println("Requesting container allocation from ResourceManager")
     while (allocatedContainers < numOfContainers){
@@ -59,7 +60,7 @@ import scala.collection.JavaConversions._
         allocatedContainers += 1
         val ctx = Records.newRecord(classOf[ContainerLaunchContext])
         ctx.setCommands(Collections.singletonList(javahome + " " + common.ApsSlave+ " " +
-          clientName+ " "+host+" " +"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
+          clientName+ " "+host+" "+ outputPath +" "+"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
         + "/stdout" + "2> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr"))
         println("Starting container on node : " + container.getNodeHttpAddress)
         nmClient.startContainer(container,ctx)

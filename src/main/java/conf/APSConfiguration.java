@@ -286,6 +286,8 @@ public class APSConfiguration extends YarnConfiguration {
       set("aps.data_path",dataPath);
       return this;
     }
+    public APSConfiguration setOutputPath(String outputPath){set("aps.output_path",outputPath); return  this;}
+    public String getOutPutPath(){return  get("aps.output_path");}
 
     public String getDataPath(){
       return get("aps.data_path");

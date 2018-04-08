@@ -4,17 +4,17 @@ import akka.actor.{ActorSelection, Props}
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
 import common.workerInfo.WorkerInfo
 import communication._
-import io.ModelInfo
+import io.{ModelInfo, ParameterInfo}
 import ipc.Server.ServerNettyImpl
 import protobuf.MatrixLong.Matrix
 import util.Utilities
-import scala.concurrent.ExecutionContext.Implicits.global
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.mutable.ListBuffer
 import scala.concurrent.Future
 import scala.util.Success
 
-class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: ListBuffer[Matrix], parameter: ListBuffer[Matrix]) extends AkkaCluter {
+class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: ListBuffer[Matrix], parameter: ListBuffer[Matrix],outputPath:String) extends AkkaCluter {
   var masterRef : ActorSelection = null
   val workerInfo = new WorkerInfo(1L,Utilities.getLocalHost,1)
   //传输model的actor
@@ -27,9 +27,11 @@ class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: Lis
   workerInfo.setNettyPort(nettyServer.initial())
 
   //当前训练的model和本机的model列表
-  var currentModel : ModelInfo = null
+  var currentModel : ModelInfo = new ModelInfo
   val models = new ListBuffer[ModelInfo]
+  models.append(currentModel)
 
+  val parameterInfo = new ParameterInfo
 
   override def receive: Receive = {
     case x : MemberUp =>
@@ -48,13 +50,15 @@ class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: Lis
       readBlock(blockInfos)
       workerInfo.setBlockInfo(blockInfos)
       masterRef ! ReadStatus(workerInfo.getId,"success")
-    case InitialModelAndParam =>
-      initialModel()
-      transParamter()
+    case InitialModelAndParam(row,col) =>
+      initialModel() //初始化currentModel
+      masterRef ! ModelInformation(workerInfo.getId,currentModel.getModelId,currentModel.getMatrixId)
+      transParamter() //初始化parameterInfo
+      masterRef ! ParamInformation(workerInfo.getId,parameterInfo.getId,parameterInfo.getMatrixId)
       masterRef ! InitialModelSuccess(workerInfo.getId)
     case TrainModelAndParam =>
       trainModelandParams()
-      masterRef ! TrainModelAndParamFinish(workerInfo.getId,workerInfo.getBias)
+      masterRef ! TrainModelAndParamFinish(workerInfo.getId,currentModel.getBias)
     case ModelTrainFinish(outputPath) =>
       doSaveModel()
       masterRef ! ModelFinishAndSaved(workerInfo.getId)

@@ -16,7 +16,7 @@ case class ReadStatus(id : Long, status: String)     //success or failure
 case class NettyServerStart()
 case class NettyId(host: String, port : Int) //返回
 
-case class InitialModelAndParam()              //所有的参数初始化
+case class InitialModelAndParam(row:Int,col:Int)              //所有的参数初始化
 case class InitialModelSuccess(id : Long)
 
 
@@ -26,7 +26,8 @@ case class ModelTrainFinish(outputPath : String)    //该模型训练结束并�
 case class ModelFinishAndSaved(id: Long)
 case class ModelCache()          //将模型缓存
 case class ModelSaved()          //返回模型存储成功
-case class ModelId()
+case class ModelInformation(id: Long, modelId: Long , matrixId : Long)     //模型初始化后，向master传递的信息
+case class ParamInformation(id: Long, paramId: Long , matrixId : Long)     //参数初始化后，向master传递的信息
 
 case class TransMode(host: String, port: Int, id : Long)
 case class TransPara(host: String, port: Int)
