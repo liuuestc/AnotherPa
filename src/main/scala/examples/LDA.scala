@@ -3,6 +3,7 @@ package examples
 import client.Client
 import conf.APSConfiguration
 import deploy.ScalaClient
+import protobuf.MatrixLong
 
 class LDA extends Client{
 
@@ -13,15 +14,17 @@ class LDA extends Client{
     conf.setJarPath("Hello World")
   }
 
-  override def compute: Unit = println("LDA is computing")
-  override def getPs: Nothing = super.getPs
-  override def putPs: Nothing = super.putPs
-  override def init: Unit = println("LDA is inited")
   override def selectOne: String = ???
-  override def loadDate(inputPath: String): Unit = ???
-  override def saveModel(outputPath: String): Unit = ???
 
   override def isPs: Boolean = true
 
-  override def merge: Unit = ???
+  override def compute(matrix: MatrixLong.Matrix): MatrixLong.Matrix = ???
+
+  override def init(matrix: MatrixLong.Matrix): MatrixLong.Matrix = ???
+
+  override def merge(matrix: MatrixLong.Matrix): MatrixLong.Matrix = ???
+
+  override def inputPath: String ="outputPath"
+
+  override def outputPath: String = ???
 }

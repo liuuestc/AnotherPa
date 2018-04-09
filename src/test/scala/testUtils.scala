@@ -11,7 +11,7 @@ object testUtils extends App {
   val conf = new APSConfiguration()
   val client = new LDA()
   val lda = Class.forName(client.getClass.getName).newInstance().asInstanceOf[Client]
-  lda.compute
+  print(lda.inputPath)
 }
 
 object testP extends App{

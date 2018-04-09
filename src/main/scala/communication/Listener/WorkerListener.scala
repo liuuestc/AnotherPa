@@ -2,9 +2,10 @@ package communication.Listener
 
 import akka.actor.{ActorSelection, Props}
 import akka.cluster.ClusterEvent.{MemberEvent, MemberRemoved, MemberUp, UnreachableMember}
+import client.Client
 import common.workerInfo.WorkerInfo
 import communication._
-import io.{ModelInfo, ParameterInfo}
+import io.{BlockMangerImpl, ModelInfo, ParameterInfo}
 import ipc.Server.ServerNettyImpl
 import protobuf.MatrixLong.Matrix
 import util.Utilities
@@ -14,7 +15,7 @@ import scala.collection.mutable.ListBuffer
 import scala.concurrent.Future
 import scala.util.Success
 
-class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: ListBuffer[Matrix], parameter: ListBuffer[Matrix],outputPath:String) extends AkkaCluter {
+class WorkerListener(className : String, blockMangerImpl: BlockMangerImpl) extends AkkaCluter {
   var masterRef : ActorSelection = null
   val workerInfo = new WorkerInfo(1L,Utilities.getLocalHost,1)
   //传输model的actor
@@ -33,6 +34,8 @@ class WorkerListener(className : String,trainData: ListBuffer[Matrix],model: Lis
 
   val parameterInfo = new ParameterInfo
 
+  val clientClass = Class.forName(className).newInstance().asInstanceOf[Client]
+  val outputPath = clientClass.outputPath
   override def receive: Receive = {
     case x : MemberUp =>
       log.info("Member is UP : {}", x.member)

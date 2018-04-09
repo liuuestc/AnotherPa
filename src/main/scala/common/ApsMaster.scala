@@ -25,8 +25,12 @@ import scala.util.{Failure, Success}
 class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, host:String,conf:APSConfiguration, outputPath: String) extends AkkaCluter{
   val workerIds = new ListBuffer[WorkerInfo]()
   val models = new ListBuffer[ModelInfo]()
+
+
   val blockManger = new BlockMangerImpl()
-  var bias : Double = 0
+
+
+  var totalBias : Double = 0         //目前所有的误差和
   val partBias =  new mutable.HashMap[ModelInfo,Double]()   // 每个worker上传的误差
   var finished =0
 
@@ -45,15 +49,9 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
   //获取inputData的blockInfo,等待分发blockInfo（将blockInfo转换成String）
   val blockManagerImpl =new  BlockMangerImpl()
   val blockInfoes = blockManagerImpl.getAndAllocBlockInfo(dataPath,numberOfContainer)
-  val paras = if(client.isPs) new ListBuffer[Matrix] else None  //AppMaster
   val parameterListener = context.actorOf(Props[ParameterListener],"parameter")
 
   val workRef ="""/user/worker"""
-
-
-  //每一个executor要训练到全部参数的批数
-  val refToNum = new mutable.HashMap[ActorSelection,Int]()
-
 
   //创建actorSystem
   val (actorSystem, boundPort) = new ActorSystemUtils("actorSystem",host,conf,true).createActorSystem
@@ -179,8 +177,7 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
   def initialPara(){}
   //查找refToNum中批数最少的actorSelection
   def getMinactorSelection() : ActorSelection ={
-    if (!refToNum.isEmpty)
-      refToNum.toSeq.sortBy(_._2).head._1
+
     null
   }
 

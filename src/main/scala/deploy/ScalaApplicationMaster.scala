@@ -60,7 +60,7 @@ import scala.collection.JavaConversions._
         allocatedContainers += 1
         val ctx = Records.newRecord(classOf[ContainerLaunchContext])
         ctx.setCommands(Collections.singletonList(javahome + " " + common.ApsSlave+ " " +
-          clientName+ " "+host+" "+ outputPath +" "+"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
+          clientName+ " "+host+" "+"1> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR
         + "/stdout" + "2> " + ApplicationConstants.LOG_DIR_EXPANSION_VAR + "/stderr"))
         println("Starting container on node : " + container.getNodeHttpAddress)
         nmClient.startContainer(container,ctx)
