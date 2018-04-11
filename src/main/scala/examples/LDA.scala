@@ -2,7 +2,7 @@ package examples
 
 import client.Client
 import conf.APSConfiguration
-import deploy.ScalaClient
+import io.BlockMangerImpl
 import protobuf.MatrixLong
 
 class LDA extends Client{
@@ -18,13 +18,15 @@ class LDA extends Client{
 
   override def isPs: Boolean = true
 
-  override def compute(matrix: MatrixLong.Matrix): MatrixLong.Matrix = ???
 
-  override def init(matrix: MatrixLong.Matrix): MatrixLong.Matrix = ???
-
-  override def merge(matrix: MatrixLong.Matrix): MatrixLong.Matrix = ???
 
   override def inputPath: String ="outputPath"
 
   override def outputPath: String = ???
+
+  override def compute(blockMangerImpl: BlockMangerImpl, id: Long): Boolean = ???
+
+  override def merge(blockMangerImpl: BlockMangerImpl, id: Long): MatrixLong.Matrix = ???
+
+  override def init(blockMangerImpl: BlockMangerImpl): Unit = ???
 }

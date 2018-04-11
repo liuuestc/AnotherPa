@@ -6,6 +6,7 @@ import client.Client
 import common.workerInfo.WorkerInfo
 import communication._
 import io.{BlockMangerImpl, ModelInfo, ParameterInfo}
+import ipc.Client.{ClientNetty, ClientNettyImpl}
 import ipc.Server.ServerNettyImpl
 import protobuf.MatrixLong.Matrix
 import util.Utilities
@@ -25,6 +26,7 @@ class WorkerListener(className : String, blockMangerImpl: BlockMangerImpl) exten
   //模型训练Actor
   val learningListener = context.actorOf(Props[LearningListener], "learning")
   val nettyServer = new ServerNettyImpl
+  val nettyClient = new ClientNettyImpl
   workerInfo.setNettyPort(nettyServer.initial())
 
   //当前训练的model和本机的model列表
@@ -58,7 +60,18 @@ class WorkerListener(className : String, blockMangerImpl: BlockMangerImpl) exten
       masterRef ! ModelInformation(workerInfo.getId,currentModel.getModelId,currentModel.getMatrixId)
       transParamter() //初始化parameterInfo
       masterRef ! ParamInformation(workerInfo.getId,parameterInfo.getId,parameterInfo.getMatrixId)
+
+    case SendInitialParam(host,port) =>{
+      val f = Future{
+        nettyClient.sendParameter(blockMangerImpl.getParameters.get(1),host,port)
+      }
+      f.onComplete{
+        case Success(value) => masterRef ! InitialParamSuccee(workerInfo.getId)
+      }
+    }
+    case InitialParamSuccee =>
       masterRef ! InitialModelSuccess(workerInfo.getId)
+
     case TrainModelAndParam =>
       trainModelandParams()
       masterRef ! TrainModelAndParamFinish(workerInfo.getId,currentModel.getBias)

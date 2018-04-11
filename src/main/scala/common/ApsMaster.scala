@@ -45,7 +45,7 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
   val port = nettyServer.initial()
   val localHost = Utilities.getLocalHost
   val masterNetty = NettyId(localHost,port)
-
+  val nettyClient = new ClientNettyImpl
   //获取inputData的blockInfo,等待分发blockInfo（将blockInfo转换成String）
   val blockManagerImpl =new  BlockMangerImpl()
   val blockInfoes = blockManagerImpl.getAndAllocBlockInfo(dataPath,numberOfContainer)
@@ -89,18 +89,31 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
           workers.foreach(worker =>{
             worker._2 ! InitialModelAndParam(masterParamterInfo.getRow,masterParamterInfo.getColumn)
           })
-          workerIds.foreach(worker =>{
-            worker.setRunning(true)
-          })
+
         }
       }
+        //如果读取失败则进行如下操作
+      else {
+
+      }
+
+    //向worker发送传输parameter的信息
+    case ParamInformation(id,paramId,matrixId) => workers.get(id).get ! SendInitialParam(localHost,port)
+    //向worker发送传输初始化成功的消息
+    case InitialParamSuccee(id) =>{
+      mergeParams()
+      workers.get(id).get ! InitialParamSuccee
+    }
+
     case InitialModelSuccess(id) =>
       workerIds.find(_.getId == id).get.setInited(true)
       if(workerIds.count(_.isInited) == numberOfContainer){
-        initialPara()
-          workers.foreach(worker =>{
-            worker._2 ! TrainModelAndParam
-          })
+        workerIds.foreach(worker =>{
+          worker.setRunning(true)
+        })
+        workers.foreach(worker =>{
+          worker._2 ! TrainModelAndParam
+        })
       }
 
     case TrainModelAndParamFinish(iid,bias) =>{
@@ -163,6 +176,8 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
     case ModelFinishAndSaved(id) => if (models.count(_.isFinished) == numberOfContainer)  closeSystem()
   }
 
+  //合并从worker传来的parameters,并返回matrix
+  def mergeParams() : Matrix = {null}
   //
   def updateModelInfo(){}
     //判断model是否已经迭代完成
@@ -173,8 +188,6 @@ class ApsMaster(className : String, dataPath : String, numberOfContainer: Int, h
   def closeSystem(){}
   //判断误差大小,如果符合标准则返回true
   def computeBias(): Boolean = {false}
-  //将收到的所有接收到初始化的参数合并后将合并后的参数传输出去
-  def initialPara(){}
   //查找refToNum中批数最少的actorSelection
   def getMinactorSelection() : ActorSelection ={
 

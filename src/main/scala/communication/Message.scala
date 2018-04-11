@@ -18,9 +18,12 @@ case class NettyId(host: String, port : Int) //返回
 
 case class InitialModelAndParam(row:Int,col:Int)              //所有的参数初始化
 case class InitialModelSuccess(id : Long)
-
+case class InitialParamSuccee(id: Long)
+case class SendInitialParam(host:String,port:Int)
 
 case class TrainModelAndParam()
+case class TrainModel()
+case class TrainModelFinish(id: Long, bias: Double)
 case class TrainModelAndParamFinish(id : Long , bias: Double)
 case class ModelTrainFinish(outputPath : String)    //该模型训练结束并存储
 case class ModelFinishAndSaved(id: Long)

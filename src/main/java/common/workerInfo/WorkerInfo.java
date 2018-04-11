@@ -13,6 +13,16 @@ public class WorkerInfo {
     private List<Long> modelIds = new LinkedList<Long>();
     private Long parasId;
     private boolean Loaded = false;
+    private boolean parasInited = false;
+
+    public boolean isParasInited() {
+        return parasInited;
+    }
+
+    public void setParasInited(boolean parasInited) {
+        this.parasInited = parasInited;
+    }
+
     private boolean inited = false;
 
     public boolean isRunning() {
