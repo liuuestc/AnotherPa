@@ -24,6 +24,10 @@ public class testMatrixDouble {
             for (double d : dRow.getNumList()){
                 System.out.print(d + " ");
             }
+
+            for(int i=0; i<dRow.getNumList().size(); i++){
+                System.out.print("*****" + dRow.getNumList().get(i));
+            }
             System.out.println();
         }
     }
