@@ -3,10 +3,14 @@ package examples
 import java.util.UUID
 
 import client.Client
+import com.google.common.annotations.Beta
 import conf.APSConfiguration
 import io.BlockMangerImpl
+import protobuf.MatrixLong
 import protobuf.MatrixLong.{Matrix, Row}
 
+import scala.collection.JavaConversions._
+import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
@@ -14,47 +18,35 @@ class LDA extends Client{
 
   def initial(conf: APSConfiguration): Unit ={
     conf.setAppName("LDA")
-    conf.setDataPath("")
     conf.set("LDAClasspath",this.getClass.getName)
     conf.setJarPath("Hello World")
   }
-
   //主题个数
   var k = 0
   //词袋大小
   var v = 0
-
   //先验
-  var a = 1
-  var b = 1
+  var alpha = 2.0
+  var beta = 0.5
   // 主题计数矩阵
   val topicCountBuilder = Matrix.newBuilder()
   val topicRowBuilder = Row.newBuilder()
   for (i <- 0 until(k)) topicRowBuilder.addNum(0L)
-
   //词矩阵和临时结构
   val wordTopicRow = Row.newBuilder()
   val wordTopicBuilder = Matrix.newBuilder()
   val wordTopic = dim2L(v,k)
-
   //文章每个词对应的topic
   val docToTopicMatrix =new ListBuffer[Matrix]
   val docToTopicRow = Row.newBuilder()
   val docToTopicBuilder = Matrix.newBuilder()
-
   //文章的topic分布
   var totalDoc = 0
   val docTopic = dim2L(totalDoc,k)
   override def selectOne: String = ???
-
   override def isPs: Boolean = true
-
-
-
   override def inputPath: String ="outputPath"
-
   override def outputPath: String = ???
-
   override def compute(blockMangerImpl: BlockMangerImpl, id: Long): Boolean = {
       //获取需要计算的模型
       var model = new ListBuffer[Matrix]
@@ -79,30 +71,26 @@ class LDA extends Client{
           for (k <- 0 until doc.getNumCount){
             val t = tdoc.getNum(k)
             val w = doc.getNum(k)
-            //计算后w新分配的主题。
 
-            val tt = astopic()
-            if(tt != t.asInstanceOf[Int]){
+            val  row = m.getRow(w.asInstanceOf[Int])
+            val  pre1 = row.getNum(t.asInstanceOf[Int])
+            row.newBuilderForType().setNum(t.asInstanceOf[Int],pre1-1).build()
+            docTopic.apply(i).apply(t.asInstanceOf[Int]) -=1
+            topicCount.getRow(0).newBuilderForType().setNum(t.asInstanceOf[Int],topicCount.getRow(0).getNum(t.asInstanceOf[Int])-1)
+            //计算后w新分配的主题。
+            val tt = gibbsSampler(topicCount,t,w,row)
               //更新主题
               tdoc.setNum(k,tt)
-              val row = m.getRow(w.asInstanceOf[Int])
-              val  pre1 = row.getNum(t.asInstanceOf[Int])
               val post1 = row.getNum(tt)
               row.newBuilderForType().setNum(tt,post1+1).build()
-              row.newBuilderForType().setNum(t.asInstanceOf[Int],pre1-1).build()
-              docTopic.apply(i).apply(t.asInstanceOf[Int]) -=1
               docTopic.apply(i).apply(tt) += 1
-              topicCount.getRow(0).newBuilderForType().setNum(t.asInstanceOf[Int],topicCount.getRow(0).getNum(t.asInstanceOf[Int])-1)
               topicCount.getRow(0).newBuilderForType().setNum(t.asInstanceOf[Int],topicCount.getRow(0).getNum(tt + 1))
-            }
           }
         }
       }
 
-    false
+    true
   }
-
-
   //server端merger频率计数
   override def merge(blockMangerImpl: BlockMangerImpl, id: Long): Boolean = {
     var tmp = 0
@@ -186,9 +174,26 @@ class LDA extends Client{
     blockMangerImpl.addModels(wordTopicBuilder.build())
     blockMangerImpl.addParamters(topicCountBuilder.setId(topicCountId).addRow(topicRowBuilder.setRowNum(topicCountId)).build())
   }
-
   //分配新的主题
-  def astopic() :Int ={1}
+  def gibbsSampler(topicCount : Matrix , topic:Long, word : Long, row: Row) :Int ={
+    val topics = new Array[Double](k)
+    val tc = topicCount.getRow(0)
+    val ndsum = row.getNumList.reduce(_+_)
+    for (i <- 0 until k){
+      val nw = row.getNum(i)
+      val nwsum = tc.getNum(i)
+      val nd = row.getNum(i)
+      topics(0) = ((nw+beta) * (nd + alpha))/((nwsum+ k * beta) * (ndsum + k * alpha))
+    }
+    val total = topics.reduce(_+_)
+    var r = new Random().nextDouble() * total
+    var newT = 0
+    for (i <- 0 until k){
+      if (topics(i) > r) newT =  i
+      else r -= topics(i)
+    }
+    newT
+  }
   def dim2L(rows : Int, cols : Int):Array[Array[Long]]={
     val d2 :Array[Array[Long]] = new Array(rows)
     for (k <-0 until rows ) {
@@ -196,6 +201,23 @@ class LDA extends Client{
     }
     d2
   }
-  def gibbsSample() = ???
 
+  override def saveModel: Map[String, ListBuffer[Matrix]] = {
+    val result = new mutable.HashMap[String,ListBuffer[Matrix]]
+    val docTopicRowBuilder = Row.newBuilder()
+    val docTopicMatrix = Matrix.newBuilder()
+    for (i <- 0 until v){
+      docTopicRowBuilder.setRowNum(i)
+      val sum = docTopic.apply(i)
+      for (j <- 0 until k){
+        docTopicRowBuilder.addNum(docTopic.apply(i).apply(j))
+      }
+      docTopicMatrix.addRow(docTopicRowBuilder.build())
+      docTopicRowBuilder.clear()
+    }
+    val list = new ListBuffer[Matrix]
+    list.append(docTopicMatrix.build())
+    result.put("docTopic",list)
+    result.toMap
+  }
 }

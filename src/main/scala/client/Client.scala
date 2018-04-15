@@ -4,6 +4,8 @@ import conf.APSConfiguration
 import io.BlockMangerImpl
 import protobuf.MatrixLong.Matrix
 
+import scala.collection.mutable.ListBuffer
+
 //调度器负责一部分参数的训练
 trait Client  {
   // 将数据加载到workers上，实现这个代码
@@ -23,4 +25,6 @@ trait Client  {
   def selectOne : String
   //用户初始化配置文件
   def initial(conf: APSConfiguration)
+  //返回除了model矩阵外的需要存储的矩阵列表
+  def saveModel: Map[String,ListBuffer[Matrix]]
 }
